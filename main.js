@@ -12,7 +12,7 @@
         edadInput.value = "";
         actualizarListaEdades();
       } else {
-        alert("Por favor, ingresa una edad válida.");
+        alert("Por favor, ingresa una edad valida.");
       }
     }
 
