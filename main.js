@@ -1,38 +1,36 @@
-    // Variables globales para almacenar las edades ingresadas
-    var edades = [];
+var edades = [];
 
-    // Función para agregar una edad a la lista
-    function agregarEdad() {
-      var edadInput = document.getElementById("edad");
-      var edad = parseInt(edadInput.value);
+// Función para capturar edad mediante prompt() 
+function agregarEdad() {
+  var entrada = prompt("Ingrese una edad:");
 
-      // Verificar que la entrada sea un número válido
-      if (!isNaN(edad) && edad > 0) {
-        edades.push(edad);
-        edadInput.value = "";
-        actualizarListaEdades();
-      } else {
-        alert("Por favor, ingresa una edad valida.");
-      }
-    }
+  // Convertir la entrada a número y verificar si es válida
+  var edad = parseInt(entrada);
+  if (!isNaN(edad) && edad > 0) {
+    edades.push(edad);
+    actualizarListaEdades();
+  } else {
+    alert("Por favor, ingrese una edad válida.");
+  }
+}
 
-    // Función para actualizar la lista de edades ingresadas
-    function actualizarListaEdades() {
-      var listaEdades = document.getElementById("edadesIngresadas");
-      listaEdades.innerHTML = "Edades ingresadas: " + edades.join(", ");
-    }
+// Función para mostrar las edades ingresadas en el HTML
+function actualizarListaEdades() {
+  var listaEdades = document.getElementById("edadesIngresadas");
+  listaEdades.innerHTML = "Edades ingresadas: " + edades.join(", ");
+}
 
-    // Función para calcular la edad promedio
-    function calcularEdadPromedio() {
-      if (edades.length === 0) {
-        alert("Por favor, ingresa al menos una edad antes de calcular el promedio.");
-        return;
-      }
+// Función para calcular el promedio y mostrarlo en un alert()
+function calcularEdadPromedio() {
+  if (edades.length === 0) {
+    alert("Por favor, ingrese al menos una edad antes de calcular el promedio.");
+    return;
+  }
 
-      var sumaEdades = edades.reduce(function (a, b) {
-        return a + b;
-      });
+  var sumaEdades = edades.reduce(function (a, b) {
+    return a + b;
+  });
 
-      var promedio = sumaEdades / edades.length;
-      document.getElementById("edadPromedio").textContent = promedio.toFixed(2);
-    }
+  var promedio = sumaEdades / edades.length;
+  alert("Edades ingresadas: " + edades.join(", ") + "\nEdad promedio: " + promedio.toFixed(2));
+}
