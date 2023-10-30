@@ -1,34 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
   <title>Calculadora de Edad Promedio</title>
-  <style>
-    body {
-      font-family:'Courier New', Courier, monospaceg;
-    }
-    #container {
-      width: 300px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    input[type="number"] {
-      width: 100px;
-      padding: 5px;
-    }
-  </style>
-</head>
-<body>
-  <html>
-<head>
-  <title>Calculadora de Edad Promedio</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
   <div id="container">
     <h1>Calculadora de Edad Promedio</h1>
-    <button onclick="agregarEdad()">Agregar Edad</button>
-    <button onclick="calcularEdadPromedio()">Calcular Edades</button><br><br>
+    <p>Ingresa las edades y luego presiona calcular:</p>
+    <input type="number" id="edadInput" placeholder="Edad">
+    <button id="agregarBtn">Agregar Edad</button>
+    <br><br>
     <div id="edadesIngresadas"></div>
+    <br><br>
+    <div id="resultado"></div>
+    <br><br>
+    <button id="calcularBtn">Calcular Promedio</button>
   </div>
-  <script src="./main.js"></script>
+
+  <script src="main.js"></script>
 </body>
 </html>

@@ -1,29 +1,37 @@
 var edades = [];
 
-// Función para capturar edad mediante prompt() 
-function agregarEdad() {
-  var entrada = prompt("Ingrese una edad:");
+var edadInput = document.getElementById("edadInput");
+var agregarBtn = document.getElementById("agregarBtn");
+var calcularBtn = document.getElementById("calcularBtn");
+var edadesIngresadasDiv = document.getElementById("edadesIngresadas");
+var resultadoDiv = document.getElementById("resultado");
 
-  // Convertir la entrada a número y verificar si es válida
-  var edad = parseInt(entrada);
+agregarBtn.addEventListener("click", function() {
+  agregarEdad();
+});
+
+calcularBtn.addEventListener("click", function() {
+  calcularEdadPromedio();
+});
+
+function agregarEdad() {
+  var edad = parseInt(edadInput.value);
   if (!isNaN(edad) && edad > 0) {
     edades.push(edad);
     actualizarListaEdades();
+    edadInput.value = "";
   } else {
-    alert("Por favor, ingrese una edad válida.");
+    alert("Por favor, ingresa una edad válida.");
   }
 }
 
-// Función para mostrar las edades ingresadas en el HTML
 function actualizarListaEdades() {
-  var listaEdades = document.getElementById("edadesIngresadas");
-  listaEdades.innerHTML = "Edades ingresadas: " + edades.join(", ");
+  edadesIngresadasDiv.textContent = "Edades ingresadas: " + edades.join(", ");
 }
 
-// Función para calcular el promedio y mostrarlo en un alert()
 function calcularEdadPromedio() {
   if (edades.length === 0) {
-    alert("Por favor, ingrese al menos una edad antes de calcular el promedio.");
+    resultadoDiv.textContent = "Por favor, ingresa al menos una edad antes de calcular el promedio.";
     return;
   }
 
@@ -32,5 +40,5 @@ function calcularEdadPromedio() {
   });
 
   var promedio = sumaEdades / edades.length;
-  alert("Edades ingresadas: " + edades.join(", ") + "\nEdad promedio: " + promedio.toFixed(2));
+  resultadoDiv.textContent = "Edad promedio: " + promedio.toFixed(2);
 }
