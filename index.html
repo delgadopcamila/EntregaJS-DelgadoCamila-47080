@@ -4,19 +4,21 @@
   <meta charset="UTF-8">
   <title>Calculadora de Edad Promedio</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-j5f6uw5xr9EAGMz2eVXE5OKqDo4TuKD8VJvM09s7DmQgnFh9I3nYV0VcXikcRviYeDwwGOeN1Zem3Zce0vUSuA==" crossorigin="anonymous" />
 </head>
 <body>
   <div id="container">
     <h1>Calculadora de Edad Promedio</h1>
-    <p>Ingresa las edades y luego presiona calcular:</p>
+    <p>Ingresa el nombre y la edad, luego presiona agregar y calcular:</p>
+    <input type="text" id="nombreInput" placeholder="Nombre">
     <input type="number" id="edadInput" placeholder="Edad">
-    <button id="agregarBtn">Agregar Edad</button>
+    <button id="agregarBtn"><i class="fas fa-user-plus"></i> Agregar Usuario</button>
     <br><br>
-    <div id="edadesIngresadas"></div>
+    <div id="usuariosIngresados"></div>
     <br><br>
     <div id="resultado"></div>
     <br><br>
-    <button id="calcularBtn">Calcular Promedio</button>
+    <button id="calcularBtn"><i class="fas fa-calculator"></i> Calcular Promedio</button>
   </div>
 
   <script src="main.js"></script>
